@@ -1,0 +1,10 @@
+{
+    "email": "me@here.com",
+    "password": "my-password",
+    "auth_token": "my-auth-token",
+    "delay_between_runs_seconds": 60,
+    "cameras": {
+        "front_door": "a1a1a1a1",
+        "back_door": "b2b2b2b2"
+    }
+}
