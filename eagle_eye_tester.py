@@ -45,7 +45,7 @@ class EagleEyeTester:
 
   def get_auth_key(self):
     '''
-    Get an auth key from Eagle Eye using the user, password, and API key specified in `config`.
+    Get an auth key from Eagle Eye using the email, password, and API key specified in `config`.
     '''
     auth_data = {
         'username': self.config['email'],
@@ -193,7 +193,7 @@ def get_config(file):
   except Exception as e:
     raise Exception('Could not parse config: ' + str(e))
   if 'email' not in parsed_config:
-    raise Exception('No user found in config.')
+    raise Exception('No email found in config.')
   if 'password' not in parsed_config:
     parsed_config['password'] = getpass('Please enter Eagle Eye password:')
   if 'auth_token' not in parsed_config:
@@ -211,7 +211,7 @@ def get_config(file):
 
 def main():
   parser = argparse.ArgumentParser(
-      prog='EagleEyeTester',
+      prog='python3 eagle_eye_tester.py',
       description='Tests the fetching of Eagle Eye live streams.')
 
   parser.add_argument(
@@ -229,7 +229,7 @@ def main():
   parser.add_argument(
       '-v',
       '--verbose',
-      type=bool,
+      action=argparse.BooleanOptionalAction,
       help='Whether or not to print more details while executing')
 
   args = parser.parse_args()
